@@ -1,0 +1,31 @@
+Promociones:
+
+    ID_Promocion (PK): int (clave primaria)
+    Nombre: varchar
+    Descuento: decimal
+    Fecha de inicio y fin: datetime
+    Condiciones: text (pueden ser reglas específicas para aplicar la promoción)
+
+Reseñas:
+
+    ID_Reseña (PK): int (clave primaria)
+    ID_Producto (FK): int (clave foránea que se relaciona con la tabla de Productos)
+    ID_Usuario (FK): int (clave foránea que se relaciona con la tabla de Usuarios)
+    Calificación: int (puede ser de 1 a 5 estrellas)
+    Comentario: text
+
+Envíos:
+
+    ID_Envio (PK): int (clave primaria)
+    ID_Factura (FK): int (clave foránea que se relaciona con la tabla de Facturas)
+    Fecha de envío: datetime
+    Dirección de envío: varchar
+    Estado del envío: varchar (en tránsito, entregado, etc.)
+
+Historial de Compras:
+
+    ID_Historial (PK): int (clave primaria)
+    ID_Usuario (FK): int (clave foránea que se relaciona con la tabla de Usuarios)
+    ID_Producto (FK): int (clave foránea que se relaciona con la tabla de Productos)
+    Fecha de compra: datetime
+    Cantidad comprada: int

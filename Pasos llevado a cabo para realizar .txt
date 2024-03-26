@@ -1,0 +1,115 @@
+Pasos llevado a cabo para realizar el proyecto:
+1- Instalar Composer (manejador)
+	Comandos deste terminal:
+		* php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+		** php -r "if (hash_file('sha384', 'composer-setup.php') === 'e21205b207c3ff031906575712edab6f13eb0b361f2085f1f1237b7126d785e826a450292b6cfd1d64d92e6563bbde02') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+		*** php composer-setup.php
+		**** php -r "unlink('composer-setup.php');"
+
+2- Instalar CodeIgniter4 
+	Comandos desde terminal (en la ruta 'C:\xampp\htdocs):
+		* composer create-project codeigniter4/appstarter nombreProyecto
+
+3- Ejecutar la aplicacion
+	Utilizar servidor de spark que tenemos en CodeIgniter4 al instalar el framework.
+	Comando desde terminal (en la ruta 'C:\xampp\htdocs\nobreProyecto'):
+		* php spark server
+
+4- Habilitar el modo desarrollador
+	* renombrar el archivo "env" por ".env" que se encuentrar en la raiz del proyecto
+	** modificar la linea 
+		-> "# CI_ENVIRONMENT = production" 
+		por 
+		-> "CI_ENVIRONMENT = development"
+
+-- Se puede consultar los errores desde un archivo log en la ruta: \nombreProyecto\writable\logs
+-- Configuraciones estandar como base de datos, url base, entre otras cosas del proyecto y personalizaciones en ".env" tienen su equivalente en archivos de configuracion por ende deben de ser removidas al usar la aplicacion de produccion
+
+5- Crear Base de Datos
+	Emplear una base de datos en MySQL o MariaDB
+	* Desde la terminal: CREATE DATABASE nombreBDproyecto
+	** Desde el cliente empleado: por ejemplo -> MySQL Workbench
+
+6- Se aplican las configuraciones de la base de datos en el ".env" o directamente en el nombrePoryecto\app\Config\Database.php (recomendado para ambiente de produccion, aunque tambien se puede emplear en desarrollo)
+	* hostname = localhost
+	** database = nombreBDproyecto
+	*** username = root
+	**** password = 
+	***** DBDrive = MySQLi
+
+7- Implementacion de rutas
+	- Generar 7 rutas agrupadas para trabajar con formularios, especificando para cada nombre de controlador:
+		* $routes->presenter('nombreControlador'); (en minuscula, buena practica) 
+	- Generar las rutas agrupadas de manera automatica para todos los controladores exitentes de acuerdo a sus funciones especificadas 
+		* $routes->setAutoRoute(true); 
+
+8- Implementacion de la clase Controller 
+	* Generar los controladores necesarios, deben extender del controlador BaseController
+	* Implementar cada una de las funciones necesarias para el CRUD en los controladores.
+	* Como buena practica se genera un controlador por cada modelo existente
+	* Su nombre sera en singular y con el sufijo 'Controller'. Por ejemplo -> TablaController
+
+9- Para levantar el servidor y hacer pruebas con las rutas y controladores
+	* Con la ruta creada: $routes->presenter('nombreControlador')
+	** Escribir en la terminal (desde la base del proyecto): $php spark serve
+	*** Ir al browser (navegador) y escribir la ruta. Ejemplo -> http://localhost:8080/nombreControlador
+
+10- Generar las vistas de acuerdo a cada controlador
+	* Generar las vistas en la carpeta 'View' en la direccion App/View
+	** Utilizar las funciones de los controladores para referenciar a los nombres de las vistas que se quieren mostrar
+		Ejemplo:
+ 
+			public function index() {
+        			echo view("index");
+    			}
+
+			Ubicacion de la Vista -> App/View/index.php
+			se utiliza la funcion view() y el nombre de la vista sin describir la extension de dicho archivo
+
+11- Trabajar con la herramienta Migraciones que es un de sistema de control de tablas y es la manera de usar la base de datos que previamente se configuro. Se debe evitar la creacion directa de tablas mediantes consultas SQL que nosotros programemos. 
+	* Para empezar a trabajar con los modelos, necesitamos las tablas en la base de datos, y para trabajar con las tablas, necesitamos las migraciones; se comienza por las migraciones. 
+	** Las migraciones son un sistema que nos permite generar tablas en base a archivos PHPs (clases) una clase por cada tabla en nuestra base de datos que nosotros definamos; mediante las migraciones (entiendase clases) podemos, o crear nuevas tablas, o modificar las existentes; una migracion luce como la siguente:
+	class Categorias extends Migration
+	{
+		public function up(){
+			$this->forge->addField([
+				'id'     => [
+						'type'           => 'INT',
+						'constraint'     => 5,
+						'unsigned'       => TRUE,
+						'auto_increment' => TRUE
+					 ],
+				'titulo' => [
+						'type'           => 'VARCHAR',
+						'constraint'     => '255'
+					 ],
+			]);
+			$this->forge->addKey('id', TRUE);
+			$this->forge->createTable('categorias');
+		} 
+		public function down()
+		{
+			$this->forge->dropTable('categorias');
+		}	
+	}
+	*** Para crear la migracion se ejecuta el comando: $ php spark make:migration <NombreMigracion>
+		NombreMigracion es igual al nombre que se le quiere dar a la tabla
+	**** O si se ejecuta el siguiente comando, se ejecutaran cada una de las migraciones definidas en el proyecto: $ php spark migrate
+ 	***** Para revertir las migraciones (rollback), ya sea porque falto agregar alguna columna o cambiar la definicion de la misma, se cuenta con dos escenarios posibles:
+		- Crear otra migracion para agregar los cambios
+		- Hacer un rollback de las migraciones y hacer los cambios en la migracion que define dicha tabla y volver a ejecutar las migraciones.
+
+		comando de ROLLBACK: ->  $ php spark migrage:rollback
+		Solo la ultima migracion ejecutada es revertida. No revierte solo una migracion sino todas las ejecutadas anteriormente.
+	****** Es una buena practica crear y administrar los modelos con las migraciones.
+
+12- Crear las clases Models de las tablas de la base de datos:
+	* Como buena practica llevan el mismo nombre de la tabla pero en singular y el sufijo de 'Model'. Por ejemplo -> TablaModel
+	* Estas clases Models se conectan con exclusividad a las tablas que representan y en ellas se realizan las operaciones: DELETE, INSERT, UPDATE, SELECT. 
+	* Todas las operaciones que se realizan en SQL tienen su equivalente en CodeIgniter y seran estas las que se utilizaran.
+	* Para trabajar con los modelos, se necesitan crear instacias de los mismos y luego con dichas instaciancias realizar las operaciones CRUDs correspondiente.
+
+13- Crear Carpetas dentro de la Carpeta Views (vistas del proyecto), que guarden correlacion con el de los controladores, ejemplo un controlador 'Producto' tendra una carpeta Producto  con las distintas vistas relacionadas a las operaciones del controlador y CRUD
+	* Por buenas practicas, un modelo por cada tabla, un controlador por cada modelo y una carpeta con las vistas de las operaciones CRUD por cada controlador.
+
+14-
