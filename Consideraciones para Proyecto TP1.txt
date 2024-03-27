@@ -40,3 +40,9 @@
 -> ** realizar vista de edicion de PORDUCTOS
 -> ** generar los scripts de los demas modelos donde existen subconsultas por su relacion con otros modelos (CONSULTAS PERSONALIZADAS) 
 
+-> Inconvenientes a la hora de modificar los usuarios y productos, campos unicos son requeridos pero no se pueden utilizar los mismo
+POSIBLE SOLUCION: generar otros formularios para que en el post de ellos se separan las validaciones con respecto de los formularios de creacion
+OTRA CONSIDERACION: La vista de usuario de creacion se debe hacer con el registro, una extension del login
+y la edicion de los datos de usuario debe ser una vista como funcion de la administracion de su perfil.
+OTRA CONSIDERACION: La vista de los productos debe deferir en el tipo de presentacion para el usuario (visitante y registrado) y el mismo admin
+Por Ejemplo: Cliente debe tener botones de agregar en unidad y cantidad al carrito, visitante no lo tendra, solo la info y precio del producto. y admin solo la presentacion de todos lod productos como una lista y la vista particular de cada uno sera similar al del cliente registrado o comprador pero sin la funcionalidad de agregar o comprar. 

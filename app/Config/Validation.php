@@ -73,8 +73,8 @@ class Validation extends BaseConfig
         'stock'           => 'required|is_natural_no_zero',
         'marca_id'        => 'required',
         'subcategoria_id' => 'required',
-        'peso'            => 'required|min_length[4]|max_length[125]|alpha_numeric_space',
-        'dimension'       => 'required|min_length[4]|max_length[125]|alpha_numeric_space',
+        //'peso'            => 'required|min_length[4]|max_length[125]|alpha_numeric_space',
+        //'dimension'       => 'required|min_length[4]|max_length[125]|alpha_numeric_space',
         //'imagen'          => 'required|min_length[4]|max_length[125]|alpha_space',
     ];
     

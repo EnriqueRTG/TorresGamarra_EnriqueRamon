@@ -47,7 +47,7 @@ class Usuarios extends Migration
             'fecha_alta' => [
                 'type'           => 'DATETIME',
                 'null'           => false,
-                'default'        => 'CURRENT_TIMESTAMP'
+                
             ],
             'fecha_actualizacion' => [
                 'type'           => 'DATETIME',

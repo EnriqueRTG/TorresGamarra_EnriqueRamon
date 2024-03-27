@@ -14,7 +14,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         
         <?= view("partials/_form-error") ?>
         
-        <form action="/dashboard/producto/update/<?= $categoria->id ?>" method="POST">
+        <form action="/dashboard/producto/update/<?= $producto->id ?>" method="POST">
             <?= view("producto/_form", ['nombreBoton' => 'Actualizar']) ?>
         </form>
         
