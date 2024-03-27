@@ -24,12 +24,24 @@
 <br>
 
 <label>Marca: 
-    <input type="text" name="marca_id" value="<?= old('marca_id', $producto->marca_id) ?>"/>
+    <select name="marca_id">
+        <?php foreach ($marcas as $marca) : ?>
+            <option value="<?= $marca->id ?>">
+                <?php echo $marca->nombre ; ?>
+            </option>
+        <?php endforeach ?>
+    </select>
 </label>
 <br>
 
 <label>Subcategoria: 
-    <input type="text" name="subcategoria_id" value="<?= old('subcategoria_id', $producto->subcategoria_id) ?>"/>
+    <select name="subcategoria_id">
+        <?php foreach ($subcategorias as $subcategoria) : ?>
+            <option value="<?= $subcategoria->id ?>">
+                <?php echo $subcategoria->nombre ; ?>
+            </option>
+        <?php endforeach ?>
+    </select>
 </label>
 
 <br>
@@ -45,8 +57,9 @@
 <br>
 
 <label>Imagen: 
-    <input type="text" name="imagen" value="<?= old('imagen', $producto->imagen) ?>"/>
+    <input type="file" name="imagen" id="imagen">
 </label>
 <br>
+
 
 <button type="submit"><?= $nombreBoton ?></button>
