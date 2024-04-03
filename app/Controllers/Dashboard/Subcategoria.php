@@ -60,7 +60,7 @@ class Subcategoria extends BaseController{
     public function create() {
         $subcategoriaModel = new SubcategoriaModel();
         
-        if ($this->validate('subcategorias')) {
+        if ($this->validate('subcategorias_create')) {
             $subcategoriaModel->insert([
                 'nombre'       => $this->request->getPost('nombre'),
                 'categoria_id' => $this->request->getPost('categoria_id'),
@@ -92,9 +92,10 @@ class Subcategoria extends BaseController{
     public function update($id) {
         $subcategoriaModel = new SubcategoriaModel();
         
-        if ($this->validate('subcategorias')) {
+        if ($this->validate('subcategorias_update')) {
             $subcategoriaModel->update($id, [
             'nombre' => $this->request->getPost('nombre'),
+            'categoria_id' => $this->request->getPost('categoria_id'),
             ]);
         } else {
             session()->setFlashdata([

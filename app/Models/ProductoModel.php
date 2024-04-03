@@ -16,7 +16,7 @@ use CodeIgniter\Model;
 class ProductoModel extends Model{
     protected $table = 'productos';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['codigo_SKU', 'nombre', 'descripcion', 'precio', 'stock', 'marca_id', 'subcategoria_id', 'peso', 'dimension', 'fecha_alta', 'fecha_actualizacion', 'imagen', 'baja'];
+    protected $allowedFields = ['codigo_SKU', 'nombre', 'descripcion', 'precio', 'stock', 'marca_id', 'subcategoria_id', 'presentacion', 'fecha_alta', 'fecha_actualizacion', 'imagen', 'baja'];
     protected $returnType = 'object';
 
     public function traerDetalleProductoCompleto($id) {

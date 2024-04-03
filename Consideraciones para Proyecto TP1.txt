@@ -46,3 +46,8 @@ OTRA CONSIDERACION: La vista de usuario de creacion se debe hacer con el registr
 y la edicion de los datos de usuario debe ser una vista como funcion de la administracion de su perfil.
 OTRA CONSIDERACION: La vista de los productos debe deferir en el tipo de presentacion para el usuario (visitante y registrado) y el mismo admin
 Por Ejemplo: Cliente debe tener botones de agregar en unidad y cantidad al carrito, visitante no lo tendra, solo la info y precio del producto. y admin solo la presentacion de todos lod productos como una lista y la vista particular de cada uno sera similar al del cliente registrado o comprador pero sin la funcionalidad de agregar o comprar. 
+
+
+27-03-2024
+-> hacer validaciones por separado de productos y subcategorias por separado, en Config/Validation.php -> 'productos_create' y 'productos_update'
+aplicable a casos similares, ejemplo: subcategorias y usuarios

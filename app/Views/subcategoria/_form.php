@@ -5,6 +5,13 @@
 <br>
 
 <select name="categoria_id">
+    
+    <?php if($subcategoria->categoria_id  == null) : ?>
+        <option value="0" selected>
+            Seleccionar
+        </option>
+    <?php endif ?>
+         
     <?php foreach ($categorias as $categoria) : ?>
     
         <?php if ($subcategoria->categoria_id == $categoria->id) : ?>
@@ -20,6 +27,7 @@
         <?php endif ?>
 
     <?php endforeach ?>
+
 </select>
 
 <br>
