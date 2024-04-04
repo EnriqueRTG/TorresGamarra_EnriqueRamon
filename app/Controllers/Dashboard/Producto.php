@@ -62,7 +62,7 @@ class Producto extends BaseController{
     public function create() {
         $productoModel = new ProductoModel();
         
-        if ($this->validate('productos')) {
+        if ($this->validate('productos_create')) {
             $productoModel->insert([
                 'codigo_SKU'      => $this->request->getPost('codigo_SKU'),
                 'nombre'          => $this->request->getPost('nombre'),

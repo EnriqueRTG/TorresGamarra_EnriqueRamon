@@ -49,11 +49,7 @@ class Productos extends Migration
               'constraint'       => 6,
               'unsigned'         => true,
             ],
-            'peso' => [
-                'type'           => 'VARCHAR',
-                'constraint'     => '50',
-            ],
-            'dimension' => [
+            'presentacion' => [
                 'type'           => 'VARCHAR',
                 'constraint'     => '50',
             ],
