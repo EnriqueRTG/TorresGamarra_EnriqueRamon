@@ -8,17 +8,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device=width, initial-scale=1.0">
         <title><?= $titulo ?></title>
+        
+        <link href="../../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="../../../assets/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+       
     </head>
-    <body>
+    <body class="container">
         <?= view('partials/_session') ?>
         
-        <h1><?= $titulo ?></h1>
+        <h1 class="py-5"><?= $titulo ?></h1>
         
-        <a href="/dashboard/producto/new">Crear</a>
+        <a class="btn btn-success" href="/dashboard/producto/new">Crear</a>
             
-        <table>
+        <table class="table-secondary">
             <tr>
-                <td>Codigo SKU</td>
+                <td class="p-5">Codigo SKU</td>
                 <td>Nombre</td>
                 <td>Descripcion</td>
                 <td>Precio</td>
@@ -59,11 +63,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         </td>
                         
                         <td>
-                            <a href="/dashboard/producto/<?= $producto->id ?>">Ver</a>
+                            <a class="btn btn-primary" href="/dashboard/producto/<?= $producto->id ?>">Ver</a>
                             <form action="/dashboard/producto/delete/<?= $producto->id ?>" method="POST">
-                                <button type="submit">Eliminar</button>
+                                <button class="btn btn-danger" type="submit">Eliminar</button>
                             </form>
-                            <a href="/dashboard/producto/edit/<?= $producto->id ?>">Editar</a>
+                            <a class="btn btn-dark" href="/dashboard/producto/edit/<?= $producto->id ?>">Editar</a>
                         </td>
                     <?php endif ?>
                         
@@ -71,5 +75,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <?php endforeach ?>
                 
         </table>
+                
+
     </body>
 </html>
