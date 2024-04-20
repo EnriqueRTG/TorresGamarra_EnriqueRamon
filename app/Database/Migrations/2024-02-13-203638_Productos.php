@@ -15,11 +15,6 @@ class Productos extends Migration
               'unsigned'         => true,
               'auto_increment'   => true,
             ],
-            'codigo_SKU' => [
-              'type'             => 'VARCHAR',
-              'constraint'       => '10',
-              'unique'           => true
-            ],
             'nombre' => [
                 'type'           => 'VARCHAR',
                 'constraint'     => '255',

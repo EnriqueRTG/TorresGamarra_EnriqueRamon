@@ -41,8 +41,9 @@ class Marca extends BaseController{
         $marcaModel = new MarcaModel();
         
         $data = [
-            'titulo' => "Crear Marca",
-            'marca'  => $marcaModel
+            'titulo'      => "Crear Marca",
+            'marca'       => $marcaModel,
+            'nombreBoton' => "Crear",
         ];
         
         echo view("marca/new", $data);
@@ -70,8 +71,9 @@ class Marca extends BaseController{
         $marcaModel = new MarcaModel();
         
         $data = [
-            'marca'  => $marcaModel->find($id),
-            'titulo' => "Editar Marca"
+            'marca'       => $marcaModel->find($id),
+            'titulo'      => "Editar Marca",
+            'nombreBoton' => "Editar",
         ];
         
         echo view('marca/edit', $data);

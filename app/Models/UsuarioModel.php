@@ -6,6 +6,7 @@
  */
 
 namespace App\Models;
+
 use CodeIgniter\Model;
 
 /**
@@ -13,9 +14,18 @@ use CodeIgniter\Model;
  *
  * @author Torres Gamarra Enrique Ramon
  */
-class UsuarioModel extends Model{
-    protected $table      = 'usuarios';
+class UsuarioModel extends Model {
+
+    protected $table = 'usuarios';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nombre', 'apellido', 'email', 'password', 'direccion', 'telefono', 'fecha_alta', 'fecha_actualizacion', 'rol_id', 'baja'];
+    protected $allowedFields = ['nombre', 'apellido', 'email', 'password', 'direccion', 'telefono', 'fecha_alta', 'fecha_actualizacion', 'baja'];
     protected $returnType = 'object';
+
+    function password_hash($passwordPlana) {
+        return $this->password_hash($passwordPlana, PASSWORD_DEFAULT);
+    }
+
+    function passwordVerificar($passwordPlana, $passwordHash) {
+        return password_verify($passwordPlana, $passwordHash);
+    }
 }

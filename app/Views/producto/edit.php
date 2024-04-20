@@ -1,22 +1,64 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
--->
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device=width, initial-scale=1.0">
-        <title><?= $titulo ?></title>
-    </head>
-    <body>
-    <body>
-        
-        <?= view("partials/_form-error") ?>
-        
-        <form action="/dashboard/producto/update/<?= $producto->id ?>" method="POST">
-            <?= view("producto/_form", ['nombreBoton' => 'Actualizar']) ?>
-        </form>
-        
-    </body>
-</html>
+<?= view("plantilla/header", ['titulo' => $titulo]) ?>
+
+<?= view("partials/_form-error") ?>
+
+<form class="container" action="/dashboard/producto/update/<?= $producto->id ?>" method="POST">
+
+    <label>Nombre del Producto: 
+        <input type="text" name="nombre" value="<?= old('nombre', $producto->nombre) ?>"/>
+    </label>
+    <br>
+
+    <label>Descripcion: 
+        <textarea name="descripcion" rows="3" cols="20"><?= old('descripcion', $producto->descripcion) ?></textarea>
+    </label>
+    <br>
+
+    <label>Precio: 
+        <input type="number" name="precio" value="<?= old('precio', $producto->precio) ?>"/>
+    </label>
+    <br>
+
+    <label>Stock: 
+        <input type="number" name="stock" value="<?= old('stock', $producto->stock) ?>"/>
+    </label>
+    <br>
+
+    <label>Marca: 
+        <select name="marca_id">
+            <?php foreach ($marcas as $marca) : ?>
+                <option value="<?= $marca->id ?>">
+                    <?php echo $marca->nombre; ?>
+                </option>
+            <?php endforeach ?>
+        </select>
+    </label>
+    <br>
+
+    <label>Subcategoria: 
+        <select name="subcategoria_id">
+            <?php foreach ($subcategorias as $subcategoria) : ?>
+                <option value="<?= $subcategoria->id ?>">
+                    <?php echo $subcategoria->nombre; ?>
+                </option>
+            <?php endforeach ?>
+        </select>
+    </label>
+
+    <br>
+
+    <label>Presentacion: 
+        <input type="text" name="presentacion" value="<?= old('presentacion', $producto->presentacion) ?>"/>
+    </label>
+    <br>
+
+    <label>Imagen: 
+        <input type="file" name="imagen" id="imagen">
+    </label>
+    <br>
+
+
+    <button class="btn btn-warning" type="submit"><?= $nombreBoton ?></button>
+</form>
+
+<?= view("plantilla/footer") ?>

@@ -42,8 +42,9 @@ class Categoria extends BaseController{
         $categoriaModel = new CategoriaModel();
         
         $data = [
-            'titulo'    => "Crear Categoria",
-            'categoria' => $categoriaModel,
+            'titulo'      => "Crear Categoria",
+            'categoria'   => $categoriaModel,
+            'nombreBoton' => "Crear",
         ];
         
         echo view("categoria/new", $data);
@@ -71,8 +72,9 @@ class Categoria extends BaseController{
         $categoriaModel = new CategoriaModel();
         
         $data = [
-            'categoria' => $categoriaModel->asObject()->find($id),
-            'titulo'    => "Editar Categoria"
+            'categoria'   => $categoriaModel->asObject()->find($id),
+            'titulo'      => "Editar Categoria",
+            'nombreBoton' => "Editar",
         ];
         
         echo view('categoria/edit', $data);

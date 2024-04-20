@@ -1,0 +1,73 @@
+2023-12-04
+-> Falta generar todas las migraciones 
+
+2023-12-05
+-> Falta generar todas las migraciones. Se hizo el prototipo de modelado de la base de datos mediante UML
+
+2023-12-06
+-> Faltan generar todos los modelos. Se hizo algunos metodos del controlador de Producto y las respectivas vistas a estos.
+
+2023-12-07
+-> Falta reutilzar las vistas. Falta completar los demas controladores y sus respectivas vistas.
+
+2023-12-18
+-> Generar base de datos nueva y generar las demas controladores y vistas de las tablas correspondientes que faltan, con ello definir sus modelos.
+
+
+-que el icono de carrito actualice el conteo de productos
+-al hacerle click que este active una ventana lateral derecha con la lista de produtos y el boton de finalizar compra
+- que en dicha lista desplegable tambien se pueda quitar o agrega mas articulos listados
+- al hacer clic en el boton de finalizar compra que lleve a otra pagina en la cual muestre el detalle de todos los articulos listados
+- que en dicha pagina, al pie de la lista de articulos a comprar este un formulario en el cual se debe ingresar datos requeridos para una orden de compra y envio de los productos. Y para confirmar un boton de finalizar compra.
+- ademas dicha lista tambien debe permitir la adicion o sustraccion en cantidad o totalidad de los articulos.
+- Al hacer clic en el boton de finalizar compra, se debe inviar la factura de compra al correo ingresado, generar una factura para el sistema y descontar los productos del stock.
+
+
+14-02-2024
+-> si se desea agregar una nueva categoria que esta de alta se lance la advertencia de existencia, si la categoria esta de baja se la vuelva a dar de alta (toda categoria agregada debe estar capitalizada textualmente)
+
+16-02-2024
+-> idem al anterior para marcas
+
+23-03-2024
+-> modelo, vistas y controlador sobre SUBCATEGORIAS, CATEGORIAS Y MARCAS completadas con rutas, validaciones y CRUD.
+-> INVESTIGAR sobre consultas personalizadas para la posibilidad de mejorar las operaciones.
+-> REVISAR y/o REALIZAR modelos, vistas y controladores de  USUARIOS, PRODUCTOS
+
+26-03-2024
+-> modelo, vista y controlador sobre USUARIOS, PRODUCTO
+-> ** plantear como actualizar el dato de baja o de fecha de actualizacion para el usurio. La actualizacion o baja debera ser operado por el propio usuairo (CLIENTE). El ADMIN solo podra vizualizar la lista de estos y a cada uno en particular (EXCLUYENDO PASSWORD O DATOS SENCIBLES), pero no podra modificar o eliminar usuarios.
+-> ** realizar vista de edicion de PORDUCTOS
+-> ** generar los scripts de los demas modelos donde existen subconsultas por su relacion con otros modelos (CONSULTAS PERSONALIZADAS) 
+
+-> Inconvenientes a la hora de modificar los usuarios y productos, campos unicos son requeridos pero no se pueden utilizar los mismo
+POSIBLE SOLUCION: generar otros formularios para que en el post de ellos se separan las validaciones con respecto de los formularios de creacion
+OTRA CONSIDERACION: La vista de usuario de creacion se debe hacer con el registro, una extension del login
+y la edicion de los datos de usuario debe ser una vista como funcion de la administracion de su perfil.
+OTRA CONSIDERACION: La vista de los productos debe deferir en el tipo de presentacion para el usuario (visitante y registrado) y el mismo admin
+Por Ejemplo: Cliente debe tener botones de agregar en unidad y cantidad al carrito, visitante no lo tendra, solo la info y precio del producto. y admin solo la presentacion de todos lod productos como una lista y la vista particular de cada uno sera similar al del cliente registrado o comprador pero sin la funcionalidad de agregar o comprar. 
+
+04-04-2024
+>> agregar filtro de busqueda, por nombre (por ejemplo para CATEGORIA)
+>> hacer con las vistas de MARCA, lo mismo que con las vistas de CATEGORIA
+>> luego probar las vistas de productos
+
+07'04'2024
+>> Vistas de MARCA, CATEGORIA y SUBCATEGORIA generadas
+>> Empezar con las vistas de PRODUCTO y probar CRUD de esta entidad.
+>> Empezar con las paginas de : PRINCIPAL, NOSOTROS, COMERCIALIZACION, TERMINOS Y CONDICIONES y CONTACTO (PRIMERA ENTREGA)
+
+--> Luego, generar:
+1. Login y registro
+2. Catalogo
+3. Carrito
+4. Panel de Control
+5. Perfil
+6. Mensajes
+7. Pedidos
+8. Facturas 
+
+08-04-2024
+-> Investigar para integrar AJAX en consultas para el proyecto. Por ejemplo cargar la categoria en el select a la hora de seleccionar la subcategoria de manera automatica
+-> Finalizar las vistas de PRODUCTO, testear el correcto funcionamiento del CRUD.
+-> Implementar (reutiliar) las paginas para la primera entrega: PRINCIPAL, NOSOTROS, COMERCIALIZACION, TERMINOS Y CONDICIONES y CONTACTO (PRIMERA ENTREGA)

@@ -52,6 +52,7 @@ class Subcategoria extends BaseController{
             'titulo'       => "Crear Subcategoria",
             'subcategoria' => $subcategoriaModel,
             'categorias'   => $categoriaModel->find(),
+            'nombreBoton'  => "Crear",
         ];
         
         echo view("subcategoria/new", $data);
@@ -83,7 +84,8 @@ class Subcategoria extends BaseController{
         $data = [
             'subcategoria' => $subcategoriaModel->asObject()->find($id),
             'categorias'   => $categoriaModel->find(),
-            'titulo'       => "Editar Subcategoria"
+            'titulo'       => "Editar Subcategoria",
+            'nombreBoton'  => "Editar",
         ];
         
         echo view('subcategoria/edit', $data);

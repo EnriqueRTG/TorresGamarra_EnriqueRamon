@@ -1,48 +1,52 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
--->
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device=width, initial-scale=1.0">
-        <title><?= $titulo ?></title>
-    </head>
-    <body>
-        
-        <?= view('partials/_session') ?>
-        
-        <h1><?= $titulo ?></h1>
-        
-        <a href="/dashboard/categoria/new">Crear</a>
-            
-        <table>
+<?= view("plantilla/header", ['titulo' => $titulo]) ?>
+
+<section class="alert-info text-center">
+    <?= view('partials/_session') ?>
+</section>
+
+<section class="container py-5">
+    <h1 class="title"><?= $titulo ?></h1>
+</section>
+
+<section class="container">
+    <a class="btn btn-success" href="/dashboard/categoria/new">Crear</a>
+</section>
+
+<section class="container text-center py-3">
+
+    <table class="table">
+        <thead>
             <tr>
-                <td>Nombre</td>
-                <td>Opciones</td>
+                <th scope="col">Nombre</th>
+                <th scope="col">Opciones</th>
             </tr>
+        </thead>
+        <tbody class="table-group-divider">
             <?php foreach ($categorias as $key => $categoria) : ?>
+
                 <tr>
                     <?php if ($categoria->baja != 1) : ?>
-                        <td>
+
+                        <td class="col-8">
                             <?= $categoria->nombre ?>  
                         </td>
-                        <td>
-                            <a href="/dashboard/categoria/<?= $categoria->id ?>">Ver</a>
-                            <form action="/dashboard/categoria/delete/<?= $categoria->id ?>" method="POST">
-                                <button type="submit">Eliminar</button>
-                            </form>
-                            <a href="/dashboard/categoria/edit/<?= $categoria->id ?>">Editar</a>
+
+                        <td class="col-4">
+                            <div class="row row-cols-3">
+                                <a class="btn btn-primary col" href="/dashboard/categoria/<?= $categoria->id ?>">Ver</a>
+                                <form class="col row" action="/dashboard/categoria/delete/<?= $categoria->id ?>" method="POST">
+                                    <button class="btn btn-danger col" type="submit">Eliminar</button>
+                                </form>
+                                <a class="btn btn-warning col" href="/dashboard/categoria/edit/<?= $categoria->id ?>">Editar</a>
+                            </div>
                         </td>
+
                     <?php endif ?>
                 </tr>
+
             <?php endforeach ?>
-        </table>
-        
-        <ul>
-            
-        </ul>
-        
-    </body>
-</html>
+        </tbody>
+    </table>
+</section>
+
+<?= view("plantilla/footer") ?>

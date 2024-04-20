@@ -79,8 +79,18 @@ class Validation extends BaseConfig
     ];
     
     public  $productos_create = [
-        'codigo_SKU'      => 'required|min_length[4]|max_length[10]|alpha_numeric|is_unique',
         'nombre'          => 'required|min_length[4]|max_length[125]|alpha_numeric_space|is_unique[productos.nombre, id, {id}]',
+        'descripcion'     => 'required|string',
+        'precio'          => 'required|decimal',
+        'stock'           => 'required|is_natural_no_zero',
+        'marca_id'        => 'required',
+        'subcategoria_id' => 'required',
+        'presentacion'    => 'required|min_length[4]|max_length[125]|alpha_numeric_space',
+        //'imagen'          => 'required|min_length[4]|max_length[125]|alpha_space',
+    ];
+    
+    public  $productos_update = [
+        'nombre'          => 'required|min_length[4]|max_length[125]|alpha_numeric_space',
         'descripcion'     => 'required|string',
         'precio'          => 'required|decimal',
         'stock'           => 'required|is_natural_no_zero',
