@@ -1,6 +1,6 @@
 <section class="container-fluid px-0 hide-sm py-5 mt-4" id="carrusel-principal">
     <!--carrusel-->
-    <div id="carouselExampleFade" class="carousel slide carousel-fade">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade mt-3">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="1" aria-label="Slide 2"></button>

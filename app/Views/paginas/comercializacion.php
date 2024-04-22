@@ -1,7 +1,7 @@
 <!-- Sección de comercialización-->
 <section class="container mt-5 pt-5">
 
-    <div class="card container user-select-none">
+    <div class="card container user-select-none mt-2">
         <p class="card-header mt-3 shadow-lg titulo-seccion banner-seccion" id="titulo-seccion-comercializacion">
             comercialización
         </p>

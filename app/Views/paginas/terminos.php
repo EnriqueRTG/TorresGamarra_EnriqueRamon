@@ -1,6 +1,6 @@
 <section class="container mt-5 pt-5">
 
-    <div class="card container">
+    <div class="card container mt-2">
         <p class="card-header mt-3 shadow-lg titulo-seccion banner-seccion">
             Términos y Usos
         </p>

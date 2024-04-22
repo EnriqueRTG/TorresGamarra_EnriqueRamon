@@ -39,7 +39,6 @@ body{
 #contenido{
     background-image: url(../images/fondo/fondo-b_n.jpg);
     background-repeat: repeat;
-
 }
 
 #logo-header {
@@ -242,47 +241,56 @@ body{
     width: 500px;
 }
 
-
-
-
-/*@media (max-width: 960px) {
+/* RESPONSIVE
+   ========================================================================= */
+/* escritorios normales
+   ------------------------------------------------------------------------- */
+@media (min-width: 981px) and (max-width: 1025px) {  
     .nav-item {
-        font-size: 1.7rem;
+        font-size: 2rem;
     }
+    
+    #card-principal{
+        top: 7rem;
+        margin-bottom: 8rem;
+    }
+
     .card-principal-subtitulo{
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .card-texto{
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .titulo-seccion{
-       font-size: calc(10px + 9vh);
+        font-size: 5rem;
     }
 
     #footer-cliente li a{
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     #footer-cliente p{
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 
     #footer-cliente i {
-        font-size: 2rem;
+        font-size: 1rem;
     }
+}
 
-}*/
 
-/* RESPONSIVE
-   ========================================================================= */
-
-/* Tablets en horizonal y escritorios normales
+/* Tablets en horizonal
    ------------------------------------------------------------------------- */
-@media (min-width: 768px) and (max-width: 1199px) {
+@media (min-width: 768px) and (max-width: 980px) {  
     .nav-item {
         font-size: 2rem;
+    }
+    
+    #card-principal{
+        top: 3rem;
+        margin-bottom: 4rem;
     }
 
     .card-principal-subtitulo{
@@ -356,7 +364,6 @@ body{
 /* Móviles en vertical
    ------------------------------------------------------------------------- */
 @media (max-width: 480px) {
-
     .titulo-seccion{
         font-size: 3rem;
         line-height: 1.2;
