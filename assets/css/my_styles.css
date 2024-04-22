@@ -72,7 +72,7 @@ body{
 
 .card-principal-subtitulo{
     text-align: center;
-    font-family: Merriweather, sans-serif;
+    font-family: 'Merriweather', sans-serif;
     font-style: normal;
     font-size: 2.5rem;
     font-weight: bolder;
@@ -81,7 +81,7 @@ body{
 }
 
 .card-texto{
-    font-family: Merriweather, sans-serif;
+    font-family: 'Merriweather', sans-serif;
     font-style: normal;
     text-align: justify;
     font-size: 1.5rem;
@@ -245,11 +245,11 @@ body{
    ========================================================================= */
 /* escritorios normales
    ------------------------------------------------------------------------- */
-@media (min-width: 981px) and (max-width: 1025px) {  
+@media (min-width: 981px) and (max-width: 1025px) {
     .nav-item {
         font-size: 2rem;
     }
-    
+
     #card-principal{
         top: 7rem;
         margin-bottom: 8rem;
@@ -283,11 +283,11 @@ body{
 
 /* Tablets en horizonal
    ------------------------------------------------------------------------- */
-@media (min-width: 768px) and (max-width: 980px) {  
+@media (min-width: 768px) and (max-width: 980px) {
     .nav-item {
         font-size: 2rem;
     }
-    
+
     #card-principal{
         top: 3rem;
         margin-bottom: 4rem;
